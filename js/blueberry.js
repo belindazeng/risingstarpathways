@@ -20,7 +20,6 @@
  */
 
 (function($){
-	console.log("test");
 	$.fn.extend({
 		blueberry: function(options) {
 
