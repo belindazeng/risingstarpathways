@@ -61,4 +61,9 @@
         }
     });
 
+    // Blueberry slideshow!
+    $(window).load(function() {
+            $('.blueberry').blueberry();
+        });
+
 })(jQuery); // End of use strict
