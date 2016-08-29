@@ -35,6 +35,12 @@
 
 </head>
 
+<!-- blueberry stuff to move later -->
+
+<!--- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+
+<!-- end of blueberry stuff -->
+
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -71,13 +77,22 @@
     </nav>
 
     <header>
-        <div class="header-content">
+        <div class="blueberry">
+            <ul class="slides">
+                <li><img src="http://marktyrrell.com/labs/blueberry/img/slide1.jpg" /></li>
+                <li><img src="http://marktyrrell.com/labs/blueberry/img/slide2.jpg" /></li>
+                <li><img src="http://marktyrrell.com/labs/blueberry/img/slide3.jpg" /></li>
+                <li><img src="http://marktyrrell.com/labs/blueberry/img/slide4.jpg" /></li>
+            </ul>
+        </div>
+
+<!--         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading"> ... </h1>
                 <hr>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Get My Consultation</a>
             </div>
-        </div>
+        </div> -->
     </header>
 
     <section class="bg-primary" id="about">
@@ -134,6 +149,38 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-video-camera text-primary sr-icons"></i>
+                        <h3>Online Classes</h3>
+                        <p class="text-muted">We have online classes for SATs, AP classes and more.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-book text-primary sr-icons"></i>
+                        <h3>Parenting</h3>
+                        <p class="text-muted">We have several VIP trainings on parenting your children for academic success. This includes a book! </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-graduation-cap text-primary sr-icons"></i>
+                        <h3>Moving to the US </h3>
+                        <p class="text-muted">If you're looking to send your children to a US high school, we can help! We can get set up with host families, or finding homes in the US. </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Parenting</h3>
+                        <p class="text-muted">We have several VIP trainings on parenting your children for academic success. This includes a book! </p>
+                    </div>
+                </div>
+            </div>
+        </div>x
     </section>
 
     <section class="no-padding" id="portfolio">
@@ -264,6 +311,15 @@
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/jquery.blueberry.js"></script>
+
+    <script>
+        $(window).load(function() {
+            console.log("test1");
+            console.log($('.blueberry'));
+            $('.blueberry').blueberry();
+        });
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
