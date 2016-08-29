@@ -1,11 +1,22 @@
 @import "variables.less";
 @import "mixins.less";
 
+#logo {
+  font-family: 'Courgette', cursive;
+  text-transform: capitalize;
+  font-size: 1.875em;
+}
+
 // Global Components
 html,
 body {
     height: 100%;
     width: 100%;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Cinzel', serif;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Bad Script', cursive;
 }
 
 body {
@@ -174,6 +185,7 @@ header {
         padding: 100px 15px 100px;
         width: 100%;
         .header-content-inner {
+            margin-left: 50%;
             h1 {
                 font-weight: 700;
                 text-transform: uppercase;
@@ -203,7 +215,7 @@ header {
             padding: 0 50px;
             .header-content-inner {
                 max-width: 1000px;
-                margin-left: auto;
+                margin-left: 50%;
                 margin-right: auto;
                 h1 {
                     font-size: 50px;
@@ -211,7 +223,7 @@ header {
                 p {
                     font-size: 18px;
                     max-width: 80%;
-                    margin-left: auto;
+                    margin-left: 50%;
                     margin-right: auto;
                 }
             }
