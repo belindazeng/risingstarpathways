@@ -1,11 +1,12 @@
-var gulp = require('gulp');
-var less = require('gulp-less');
-var browserSync = require('browser-sync').create();
-var header = require('gulp-header');
-var cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
-var uglify = require('gulp-uglify');
-var pkg = require('./package.json');
+var gulp = require('gulp')
+ ,  less = require('gulp-less')
+ , concat = require('gulp-concat')
+ , browserSync = require('browser-sync').create()
+ , header = require('gulp-header')
+ , cleanCSS = require('gulp-clean-css')
+ , rename = require("gulp-rename")
+ , uglify = require('gulp-uglify')
+ , pkg = require('./package.json');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -75,8 +76,22 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('vendor/font-awesome'))
 })
 
+// Our personal framework
+gulp.task('index', function() {
+    return gulp.src([
+        'html/header.html',
+        'html/index.html',
+        'html/footer.html'
+    ])
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('./'));
+});
+
+// Build all the HTML pages.
+gulp.task('build-html', ['index']);
+
 // Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['build-html', 'less', 'minify-css', 'minify-js', 'copy']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -88,7 +103,7 @@ gulp.task('browserSync', function() {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', ['browserSync', 'build-html', 'less', 'minify-css', 'minify-js'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
