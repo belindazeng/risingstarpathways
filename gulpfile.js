@@ -23,7 +23,7 @@ var outDir = path.join(__dirname, 'public');
 
 // Compile LESS files from /less into /css
 gulp.task('less', function() {
-    return gulp.src('less/creative.less')
+    return gulp.src('less/custom.less')
         .pipe(less())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest(path.join(outDir, "css")))
@@ -34,7 +34,7 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('css/creative.css')
+    return gulp.src(path.join(outDir, 'css', 'custom.css'))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(path.join(outDir, "css")))
@@ -89,15 +89,15 @@ gulp.task('copy', function() {
 
 // Our personal framework
 gulp.task('build', function() {
-    return gulp.src(['html/*.html'])
+    gulp.src(['html/*.html'])
         .pipe(gulpFn(function(file){
             gulp.src([
                 path.join(__dirname, 'html', 'common', 'header.html'),
                 file.path,
                 path.join(__dirname, 'html', 'common', 'footer.html')
             ])
-            .pipe(concat(path.join(__dirname, path.basename(file.path))))
-            .pipe(gulp.dest(outDir));
+                .pipe(concat(path.basename(file.path)))
+                .pipe(gulp.dest(outDir));
         }))
 });
 
@@ -111,7 +111,7 @@ gulp.task('default', ['base', 'copy']);
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: baseDir
+            baseDir: outDir
         },
     })
 })
@@ -119,7 +119,6 @@ gulp.task('browserSync', function() {
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'base'], function() {
     gulp.watch('less/*.less', ['less']);
-    gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('*.html', browserSync.reload);
