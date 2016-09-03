@@ -25,5 +25,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/belindazeng/risingstarpathways.git"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.0"
   }
 }
