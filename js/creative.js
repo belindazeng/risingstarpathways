@@ -63,7 +63,11 @@
 
     // Blueberry slideshow!
     $(window).load(function() {
-            $('.blueberry').blueberry();
+            $('.blueberry').blueberry({
+                pager: false,
+                keynav: false,
+                duration: 0
+            });
         });
 
 })(jQuery); // End of use strict
