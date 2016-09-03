@@ -66,7 +66,7 @@
             $('.blueberry').blueberry({
                 pager: false,
                 keynav: false,
-                duration: 0
+                duration: 1000
             });
         });
 
