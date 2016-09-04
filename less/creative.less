@@ -370,3 +370,36 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: @gray-darker;
 }
+
+/* The element on which hover*/
+.dropdown {
+    position: relative;
+    /* Show the dropdown menu on hover */
+    &:hover + .dropdown-content {
+        display: block;
+    }
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    &:hover {
+        display: block;
+    }
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Links inside the dropdown */
+    > a {
+        color: @theme-primary;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+         /* Change color of dropdown links on hover */
+        &:hover {
+            background-color: @gray-lighter;
+        }
+    }
+}
+
