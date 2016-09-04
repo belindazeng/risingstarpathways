@@ -97,7 +97,10 @@ gulp.task('build', function() {
                 path.join(__dirname, 'html', 'common', 'footer.html')
             ])
                 .pipe(concat(path.basename(file.path)))
-                .pipe(gulp.dest(outDir));
+                .pipe(gulp.dest(outDir))
+                .pipe(browserSync.reload({
+                    stream: true
+                }));
         }))
 });
 
@@ -111,7 +114,8 @@ gulp.task('default', ['base', 'copy']);
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: outDir
+            baseDir: outDir,
+            directory: true
         },
     })
 })
@@ -120,7 +124,9 @@ gulp.task('browserSync', function() {
 gulp.task('dev', ['browserSync', 'base'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('js/*.js', ['minify-js']);
+    gulp.watch('html/*.html', ['build']);
+    gulp.watch('html/common/*.html', ['build']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('*.html', browserSync.reload);
+    gulp.watch('html/**/*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
 });
