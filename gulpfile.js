@@ -46,6 +46,7 @@ gulp.task('minify-css', ['less'], function() {
 // Minify JS
 gulp.task('minify-js', function() {
     return gulp.src(['js/creative.js', "js/blueberry.js"])
+        .pipe(gulp.dest(path.join(outDir, "js")))
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
@@ -114,15 +115,15 @@ gulp.task('default', ['base', 'copy']);
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: outDir,
-            directory: true
+            baseDir: outDir
         },
     })
 })
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'base'], function() {
-    gulp.watch('less/*.less', ['less']);
+    gulp.watch('less/*.less', ['less', 'minify-css']);
+    gulp.watch('img/*', ['img']);
     gulp.watch('js/*.js', ['minify-js']);
     gulp.watch('html/*.html', ['build']);
     gulp.watch('html/common/*.html', ['build']);
