@@ -1,6 +1,5 @@
 @import "variables.less";
 @import "mixins.less";
-@import "blueberry.less";
 
 /* dropdown stuff*/
 
@@ -178,11 +177,28 @@ aside {
                 color: white;
             }
         }
-        .nav > li > a,
-        .nav > li > a:focus {
-            color: fade(white, 70%);
-            &:hover {
-                color: white;
+        .nav > .open {
+            > a,
+            > a:focus {
+                background-color: fade(@theme-primary, 20%);
+            }
+            li {
+                a,
+                a:focus {
+                    &:hover {
+                        background-color: fade(@theme-primary, 25%);
+                    }
+                }
+            }
+        }
+        .nav > li,
+        .nav > .open {
+            > a,
+            > a:focus {
+                color: fade(white, 70%);
+                &:hover {
+                    color: white;
+                }
             }
         }
         &.affix {
@@ -409,3 +425,5 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: @gray-darker;
 }
+
+
