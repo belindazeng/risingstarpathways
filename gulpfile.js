@@ -8,7 +8,8 @@ var gulp = require('gulp')
  , rename = require("gulp-rename")
  , uglify = require('gulp-uglify')
  , path = require("path")
- , pkg = require('./package.json');
+ , pkg = require('./package.json')
+ , ghPages = require('gulp-gh-pages');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -130,4 +131,12 @@ gulp.task('dev', ['browserSync', 'base'], function() {
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('html/public/*.html', browserSync.reload);
     gulp.watch('js/public/*.js', browserSync.reload);
+});
+
+// Deploy to GH pages!
+gulp.task('deploy', function() {
+  return gulp.src('./public/**/*')
+    .pipe(ghPages({
+        force: true
+    }));
 });
