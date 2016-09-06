@@ -9,3 +9,6 @@ css/*
 
 # Ignore distribution files
 public/*
+
+# gulp publish
+.publish
