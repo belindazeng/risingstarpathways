@@ -2,10 +2,10 @@ node_modules
 bower_components
 
 # Ignore minified files
-*.min.*
+/*.min.*
 
 # Ignore css folder because this is compiled
 css/*
 
 # Ignore distribution files
-public/*
+
