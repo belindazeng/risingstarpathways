@@ -128,6 +128,6 @@ gulp.task('dev', ['browserSync', 'base'], function() {
     gulp.watch('html/*.html', ['build']);
     gulp.watch('html/common/*.html', ['build']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('html/**/*.html', browserSync.reload);
-    gulp.watch('js/**/*.js', browserSync.reload);
+    gulp.watch('html/public/*.html', browserSync.reload);
+    gulp.watch('js/public/*.js', browserSync.reload);
 });

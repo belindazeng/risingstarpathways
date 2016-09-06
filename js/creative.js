@@ -23,19 +23,12 @@
 
   // Wait until window has loaded!
   $(window).load(function(){
-
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
-    });
-
     // Scroll to the URL (ie, refresh location)
     $('a.page-refresh').bind('click', function(event) {
        var $anchor = $(this);
-       var hash = $anchor.attr('href');
+
+       // extract only [#ELEMENT]
+       var hash = "#" + $anchor.attr('href').split("#")[1];
        if (hash){
         scrollToHash(hash);
       }
@@ -58,7 +51,7 @@
     // Offset for Main Navigation
     $('#mainNav').affix({
       offset: {
-        top: 100
+        top: -1
       }
     })
 
