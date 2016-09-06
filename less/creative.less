@@ -1,11 +1,60 @@
 @import "variables.less";
 @import "mixins.less";
 
-// Global Components
+/* dropdown stuff*/
+
+/* Show the dropdown menu on hover */
+/* Dropdown Button */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*came with template */
+
+#logo {
+  font-family: 'Courgette', cursive;
+  text-transform: capitalize;
+  font-size: 1.875em;
+}
+
+/* Global Components */
 html,
 body {
     height: 100%;
     width: 100%;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Cinzel', serif;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Bad Script', cursive;
 }
 
 body {
@@ -128,11 +177,29 @@ aside {
                 color: white;
             }
         }
-        .nav > li > a,
-        .nav > li > a:focus {
-            color: fade(white, 70%);
-            &:hover {
-                color: white;
+        .nav > .open {
+            > a,
+            > a:focus,
+            > a:hover {
+                background-color: fade(@theme-primary, 20%);
+            }
+            li {
+                a,
+                a:focus {
+                    &:hover {
+                        background-color: fade(@theme-primary, 25%);
+                    }
+                }
+            }
+        }
+        .nav > li,
+        .nav > .open {
+            > a,
+            > a:focus {
+                color: fade(white, 70%);
+                &:hover {
+                    color: white;
+                }
             }
         }
         &.affix {
@@ -165,7 +232,6 @@ header {
     min-height: auto;
     .background-cover;
     background-position: center;
-    background-image: url('../img/header.jpg');
     text-align: center;
     color: white;
     .header-content {
@@ -174,6 +240,7 @@ header {
         padding: 100px 15px 100px;
         width: 100%;
         .header-content-inner {
+            margin-left: 50%;
             h1 {
                 font-weight: 700;
                 text-transform: uppercase;
@@ -193,7 +260,7 @@ header {
         }
     }
     @media (min-width: 768px) {
-        min-height: 100%;
+        min-height: auto;
         .header-content {
             position: absolute;
             top: 50%;
@@ -203,7 +270,7 @@ header {
             padding: 0 50px;
             .header-content-inner {
                 max-width: 1000px;
-                margin-left: auto;
+                margin-left: 50%;
                 margin-right: auto;
                 h1 {
                     font-size: 50px;
@@ -211,7 +278,7 @@ header {
                 p {
                     font-size: 18px;
                     max-width: 80%;
-                    margin-left: auto;
+                    margin-left: 50%;
                     margin-right: auto;
                 }
             }
@@ -358,4 +425,37 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: @gray-darker;
+}
+/* about */
+#about-content {
+    margin-top: -11px
+}
+
+/*tile */
+.tile {
+    margin-top: 20px;
+    background-color: #EDEFED
+}
+
+/* red airbnb color
+ background-color: #ff7e82;
+  */
+.btn-block {
+    background-color: #007A87;
+    border-radius: 0px;
+    color: white;
+}
+.btn-block:hover{
+    background-color: green;
+    color: yellow;
+}
+
+/* Bootstrap dropdown menu fixes when large screen */
+@media (min-width: 979px) {
+    .navbar .dropdown-menu {
+        margin-top: 0px;
+    }
+    ul.nav li.dropdown:hover ul.dropdown-menu{
+        display: block;
+    }
 }
