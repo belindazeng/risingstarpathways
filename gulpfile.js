@@ -59,10 +59,10 @@ gulp.task('minify-js', function() {
 
 // Copy images
 gulp.task('img', function(){
-      gulp.src(['img/**'])
-         .pipe(gulp.dest(path.join(outDir, "img")))
-
+    gulp.src(['img/**/*'])
+        .pipe(gulp.dest(path.join(outDir, "img")));
 });
+
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function() {
     // copy sources
