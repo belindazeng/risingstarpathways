@@ -68,6 +68,9 @@
   animation: bounce 2s infinite;
 }
 
+.vspace {
+    margin: 50px
+}
 
 /* Logo */
 #logo {
@@ -136,6 +139,10 @@ p {
 .bg-dark {
     background-color: @gray-darker;
     color: white;
+}
+
+.bg-light {
+    background-color: @gray-lighter;
 }
 
 .text-faded {
@@ -400,8 +407,22 @@ header {
 }
 
 // Button Styles
+.right {
+    position: relative;
+    float: right;
+    margin-right: 2%
+
+}
 .btn-default {
     .button-variant(@gray-darker;white;white);
+}
+
+.btn-special {
+    .button-variant(@gray-darker;white;white);
+    background-color: white;
+    border-style: solid;
+    border-color: @theme-primary;
+    margin-right: 30px
 }
 
 .btn-primary {
@@ -410,8 +431,8 @@ header {
 
 .btn {
     .sans-serif-font;
-    border: none;
-    border-radius: 300px;
+    /*border: none;*/
+    border-radius: 100px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -456,6 +477,10 @@ body {
 .tile {
     margin-top: 20px;
     background-color: #EDEFED
+}
+.tile-image {
+    position: relative;
+    height: 250px;
 }
 
 /* red airbnb color
