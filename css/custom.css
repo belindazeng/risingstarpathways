@@ -598,6 +598,66 @@ body {
   background-color: green;
   color: yellow;
 }
+/* pretty list */
+#pretty_list ol {
+  counter-reset: li;
+  /* Initiate a counter */
+  list-style: none;
+  /* Remove default numbering */
+  *list-style: decimal;
+  /* Keep using default numbering for IE6/7 */
+  xpadding: 0;
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+#pretty_list ol ol {
+  margin: 0 0 0 2em;
+  /* Add some left margin for inner lists */
+}
+#pretty_list .rectangle-list a {
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em .8em;
+  *padding: .4em;
+  margin: .5em 0 .5em 2.5em;
+  background: #ddd;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+#pretty_list .rectangle-list a:hover {
+  background: #eee;
+  color: #222222;
+}
+#pretty_list .rectangle-list a:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: #1E96BE;
+  color: #eee;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+}
+#pretty_list .rectangle-list a:after {
+  position: absolute;
+  content: '';
+  border: .5em solid transparent;
+  left: -1em;
+  top: 50%;
+  margin-top: -0.5em;
+  transition: all 0.3s ease-out;
+}
+#pretty_list .rectangle-list a:hover:after {
+  left: -0.5em;
+  border-left-color: #1E96BE;
+}
 /* --------------------------------
 
 Main Components
