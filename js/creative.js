@@ -4,20 +4,16 @@
   /**
    * Scrolls to the location on the page specified by the hash.
    */
-  var scrollToHash = function(hash){
-    // We add '-content' to manually scroll into the div of our choice.
-    $('html, body').stop().animate({
-      scrollTop: ($(hash + "-content").offset().top - 50)
-    }, 1250, 'easeInOutExpo');
-
-    // close the menu if open
-    $('.navbar-toggle:visible').click();
-  };
-
   var scrollWindow = function(){
     var hash = window.location.hash;
     if (hash){
-      scrollToHash(hash);
+        // We add '-content' to manually scroll into the div of our choice.
+      $('html, body').stop().animate({
+        scrollTop: ($(hash + "-content").offset().top - 50)
+      }, 1250, 'easeInOutExpo');
+
+      // close the menu if open
+      $('.navbar-toggle:visible').click();
     }
   };
 
@@ -30,7 +26,7 @@
        // extract only [#ELEMENT]
        var hash = "#" + $anchor.attr('href').split("#")[1];
        if (hash){
-        scrollToHash(hash);
+        window.location.hash = hash;
       }
     });
 
