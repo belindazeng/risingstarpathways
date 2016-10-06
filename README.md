@@ -9,6 +9,7 @@ The development process is rather simple. An overview of the directory structure
 
 ## Directory Overview
 
+```
 +-- gulpfile.json
 +-- _html
 |   +-- common
@@ -35,6 +36,7 @@ The development process is rather simple. An overview of the directory structure
 |   +-- mixins.less
 |   +-- variables.less
 +-- _public [NOT IN REPO]
+```
 
 ## Start Development
 
