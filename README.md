@@ -56,9 +56,34 @@ The buuld command takes all the `html/*.html` files and concatenates the header 
 The deployment process to the github page is simple. However, note that as of the writing of the README, the github website does not work correctly as it is deployed to the project page. Therefore, all relative links fail since they redirect to the root (`/`) of the site.
 
 ## Launching to InMotionHosting
+The easiest way to launch to InMotion Hosting (ie, deploy to risingstarpathways.com) is to do as follows.
 
+1. Deploy the application to github pages using `gulp deploy` command.
+2. Switch into the `gh-pages` branch and `git pull` the latest version.
+3. If you've already set-up ssh access with the repository, then simply run `git push production gh-pages`
 
-## Copyright and License
+## Setting up SSH Access
+In order to simplify deployment to production, we've set-up a git repository in the InMotion Host instance. The repository is located at:
+
+```
+ssh://rising40@risingstar/home/rising40/repos/risingstarpathways.git
+```
+
+Note the username, `rising40`, and the host as `risingstar`. In order for the above to work on your local machine, please do the following.
+
+1. Edit your `~/.ssh/config` file to include the below, which maps the `risingstar` host to the correct server data.
+
+```
+Host risingstar
+  Hostname biz157.inmotionhosting.com
+  User rising40
+  Port 2222
+  IdentityFile ~/.ssh/id_rsa
+```
+2. Make sure the IdentityFile specified in the above is the same key as that uploaded to InImage Hosting for SSH access.
+
+ 
+# Copyright and License
 Modifications Copyright 2016 Rising Start Pathways.
 
 Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE) license.
