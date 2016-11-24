@@ -90,7 +90,7 @@ gulp.task('copy', function() {
 })
 
 // Our personal framework
-gulp.task('build', function() {
+gulp.task('build-en', function() {
     gulp.src(['html/*.html'])
         .pipe(gulpFn(function(file){
             gulp.src([
@@ -106,7 +106,25 @@ gulp.task('build', function() {
         }))
 });
 
+// Our personal framework
+gulp.task('build-cn', function() {
+    gulp.src(['html/cn/*.html'])
+        .pipe(gulpFn(function(file){
+            gulp.src([
+                path.join(__dirname, 'html', 'cn', 'common', 'header.html'),
+                file.path,
+                path.join(__dirname, 'html',  'cn', 'common', 'footer.html')
+            ])
+                .pipe(concat(path.basename(file.path)))
+                .pipe(gulp.dest(path.join(outDir, 'cn')))
+                .pipe(browserSync.reload({
+                    stream: true
+                }));
+        }))
+});
+
 // Base set-up
+gulp.task('build', ['build-en', 'build-cn']);
 gulp.task('base', ['build', 'less', 'minify-css', 'minify-js', 'img']);
 
 // Run everything
@@ -126,8 +144,7 @@ gulp.task('dev', ['browserSync', 'base'], function() {
     gulp.watch('less/*.less', ['less', 'minify-css']);
     gulp.watch('img/*', ['img']);
     gulp.watch('js/*.js', ['minify-js']);
-    gulp.watch('html/*.html', ['build']);
-    gulp.watch('html/common/*.html', ['build']);
+    gulp.watch('html/**/*.html', ['build']);
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('html/public/*.html', browserSync.reload);
     gulp.watch('js/public/*.js', browserSync.reload);

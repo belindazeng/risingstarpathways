@@ -1,5 +1,5 @@
 # Rising Star Pathways
-Website for Rising Star Pathways. 
+Website for Rising Star Pathways.
 
 # Getting Started
 Development makes use of [Gulp](http://gulpjs.com/).
@@ -15,6 +15,12 @@ The development process is rather simple. An overview of the directory structure
 |   +-- common
 |   |   +-- footer.html
 |   |   +-- header.html
+|   +-- cn
+|   |   +-- common
+|   |   |   +-- footer.html
+|   |   |   +-- header.html
+|   |   +-- index.html
+|   |   +-- [PAGE].html
 |   +-- index.html
 |   +-- [PAGE].html
 |   ...
@@ -38,6 +44,8 @@ The development process is rather simple. An overview of the directory structure
 +-- _public [NOT IN REPO]
 ```
 
+The structure should be mostly self-explanatory. Note that the website is translated into multiple languages. The structure for the translation mimics the structure of the English site, except we have the translations stored in a subdirectory corresponding to the language.
+
 ## Start Development
 
 To start the development process, follow normal node convention.
@@ -47,12 +55,12 @@ To start the development process, follow normal node convention.
 
 The above should be sufficient to set the development environment. To begin development, simply execute `gulp dev`.
 
-The `dev` command simply runs `build` and watches some commonly changed files, rebuilding when changes are noticed. 
+The `dev` command simply runs `build` and watches some commonly changed files, rebuilding when changes are noticed.
 
 The `build` command does the bulk of the work, outputting the results to a directory `public` (as can be seen in the above schema) and which can be directly published. Understanding what the build command does is important to the development process.
 
 ## The `build` command
-The buuld command takes all the `html/*.html` files and concatenates the header and footer, producing files with the same name at the root level of the site. Additionally, it transpiles the `*.less` files into a single `css/custom.css` and `css/custom.css.min` file. Similarly, any `*.js` files are minified and uglified and placed in the `js/` directory of the site. The `img` folder is directly copied to the root, as is, so its files are accessible under `img/`. 
+The build command takes all the `html/*.html` files and concatenates the header and footer, producing files with the same name at the root level of the site. Additionally, it transpiles the `*.less` files into a single `css/custom.css` and `css/custom.css.min` file. Similarly, any `*.js` files are minified and uglified and placed in the `js/` directory of the site. The `img` folder is directly copied to the root, as is, so its files are accessible under `img/`.
 
 ## Deploying to Github
 The deployment process to the github page is simple. However, note that as of the writing of the README, the github website does not work correctly as it is deployed to the project page. Therefore, all relative links fail since they redirect to the root (`/`) of the site.
@@ -84,7 +92,7 @@ Host risingstar
 ```
 2. Make sure the IdentityFile specified in the above is the same key as that uploaded to InImage Hosting for SSH access.
 
- 
+
 # Copyright and License
 Modifications Copyright 2016 Rising Start Pathways.
 
