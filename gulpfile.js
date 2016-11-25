@@ -151,9 +151,18 @@ gulp.task('dev', ['browserSync', 'base'], function() {
 });
 
 // Deploy to GH pages!
+gulp.task('gh-pages', function() {
+  return gulp.src('./public/**/*')
+    .pipe(ghPages({
+        force: true
+    }));
+});
+
+// Deploy to InMotionHosting!
 gulp.task('deploy', function() {
   return gulp.src('./public/**/*')
     .pipe(ghPages({
+        remoteUrl: "ssh://rising40@risingstar/home/rising40/repos/risingstarpathways.git",
         force: true
     }));
 });
