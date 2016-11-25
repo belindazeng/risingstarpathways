@@ -107,16 +107,16 @@ gulp.task('build-en', function() {
 });
 
 // Our personal framework
-gulp.task('build-cn', function() {
-    gulp.src(['html/cn/*.html'])
+gulp.task('build-zh', function() {
+    gulp.src(['html/zh/*.html'])
         .pipe(gulpFn(function(file){
             gulp.src([
-                path.join(__dirname, 'html', 'cn', 'common', 'header.html'),
+                path.join(__dirname, 'html', 'zh', 'common', 'header.html'),
                 file.path,
-                path.join(__dirname, 'html',  'cn', 'common', 'footer.html')
+                path.join(__dirname, 'html',  'zh', 'common', 'footer.html')
             ])
                 .pipe(concat(path.basename(file.path)))
-                .pipe(gulp.dest(path.join(outDir, 'cn')))
+                .pipe(gulp.dest(path.join(outDir, 'zh')))
                 .pipe(browserSync.reload({
                     stream: true
                 }));
@@ -124,7 +124,7 @@ gulp.task('build-cn', function() {
 });
 
 // Base set-up
-gulp.task('build', ['build-en', 'build-cn']);
+gulp.task('build', ['build-en', 'build-zh']);
 gulp.task('base', ['build', 'less', 'minify-css', 'minify-js', 'img']);
 
 // Run everything
