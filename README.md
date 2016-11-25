@@ -1,13 +1,14 @@
-# Rising Star Pathways
+# Rising Star Pathways <a name="top"></a>
 Website for Rising Star Pathways.
 
-# Getting Started
+# Getting Started <a name="start"></a>
 Development makes use of [Gulp](http://gulpjs.com/).
 
-# Development Process
-The development process is rather simple. An overview of the directory structure is presented below.
+# Development Process <a name="process"></a>
+The development process is rather simple. See [Directory Overview](#overview) and [Start Development](#development).
+ if interested in changing the code. Otherwise see [Launching to InMotionHosting](#inmotionhosting) and [Deploying to Github](#github) for deployment details.
 
-## Directory Overview
+## Directory Overview <a name="overview"></a>
 
 ```
 +-- gulpfile.json
@@ -46,7 +47,7 @@ The development process is rather simple. An overview of the directory structure
 
 The structure should be mostly self-explanatory. Note that the website is translated into multiple languages. The structure for the translation mimics the structure of the English site, except we have the translations stored in a subdirectory corresponding to the language.
 
-## Start Development
+## Start Development <a name="development"></a>
 
 To start the development process, follow normal node convention.
 1. Install `node` (v6.2.2) and `npm` (v3.10.6)
@@ -57,22 +58,22 @@ The above should be sufficient to set the development environment. To begin deve
 
 The `dev` command simply runs `build` and watches some commonly changed files, rebuilding when changes are noticed.
 
-The `build` command does the bulk of the work, outputting the results to a directory `public` (as can be seen in the above schema) and which can be directly published. Understanding what the build command does is important to the development process.
+The `build` command does the bulk of the work, outputting the results to a directory `public` (as can be seen in the above schema) and which can be directly published. Understanding what the build command does is important to the development process. See [The `build` command](#build) for an thorough explanation.
 
-## The `build` command
+## The `build` command <a name="build"></a>
 The build command takes all the `html/**/*.html` files and concatenates the header and footer, producing files with the same relative path at the root level of the site. Additionally, it transpiles the `*.less` files into a single `css/custom.css` and `css/custom.css.min` file. Similarly, any `*.js` files are minified and uglified and placed in the `js/` directory of the site. The `img` folder is directly copied to the root, as is, so its files are accessible under `img/`.
 
-## Deploying to Github
-The deployment process to the github page is simple. However, note that as of the writing of the README, the github website does not work correctly as it is deployed to the project page. Therefore, all relative links fail since they redirect to the root (`/`) of the site.
+## Deploying to Github <a name="github"></a>
+The deployment process to the github page is simple. Simply run `gulp deploy` and the site will deploy to the `gh-pages` branch of github. Note that some links will fail to work, as they are absolute to the root of the site (any link which begins with `/` will fail). As of the writing of the README, the deployment process has not been fixed entirely, so the `gh-pages` site is not the best place to test.
 
-## Launching to InMotionHosting
-The easiest way to launch to InMotion Hosting (ie, deploy to risingstarpathways.com) is to do as follows.
+## Launching to InMotionHosting <a name="inmotionhosting"></a>
+The easiest way to launch to InMotion Hosting (ie, deploy to `www.risingstarpathways.com`) is to do as follows.
 
 1. Deploy the application to github pages using `gulp deploy` command.
 2. Switch into the `gh-pages` branch and `git pull` the latest version.
-3. If you've already set-up ssh access with the repository, then simply run `git push production gh-pages`
+3. If you've already set-up ssh access with the repository, then simply run `git push production gh-pages`. See [Setting up SSH Access](#ssh_access) for details.
 
-## Setting up SSH Access
+## Setting up SSH Access <a name="ssh_access"></a>
 In order to simplify deployment to production, we've set-up a git repository in the InMotion Host instance. The repository is located at:
 
 ```
