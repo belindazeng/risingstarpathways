@@ -1,5 +1,6 @@
 (function($) {
   "use strict"; // Start of use strict
+  /**
 
   /**
    * Scrolls to the location on the page specified by the hash.
@@ -16,6 +17,27 @@
       $('.navbar-toggle:visible').click();
     }
   };
+
+  /**
+   * Redirects the user based on their preferred language.
+   */
+  var languageRedirect = function() {
+    var lang = navigator.languages ? navigator.languages[0]
+      : (navigator.language || navigator.userLanguage);
+    console.log(lang);
+    if (lang.indexOf("zh") > -1 && window.location.pathname.substr(1,2) != "cn"
+      && !window.sessionStorage.getItem("redirect")) {
+      window.location.replace("cn/");
+      window.sessionStorage.setItem("redirect", true);
+    }
+    else if (lang.indexOf("en") > -1 && !window.sessionStorage.getItem("redirect")) {
+      window.location.replace("/");
+      window.sessionStorage.setItem("redirect", true);
+    }
+  }
+
+  // Redirect user based on preferred language.
+  languageRedirect();
 
   // Wait until window has loaded!
   $(window).load(function(){
