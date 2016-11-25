@@ -151,7 +151,7 @@ gulp.task('dev', ['browserSync', 'base'], function() {
 });
 
 // Deploy to GH pages!
-gulp.task('gh-pages', function() {
+gulp.task('base-gh-pages', function() {
   return gulp.src('./public/**/*')
     .pipe(ghPages({
         force: true
@@ -159,10 +159,16 @@ gulp.task('gh-pages', function() {
 });
 
 // Deploy to InMotionHosting!
-gulp.task('deploy', function() {
+gulp.task('base-deploy', function() {
   return gulp.src('./public/**/*')
     .pipe(ghPages({
         remoteUrl: "ssh://rising40@risingstar/home/rising40/repos/risingstarpathways.git",
         force: true
     }));
 });
+
+// Deploy everything to gh-pages.
+gulp.task('gh-pages', ['default', 'base-gh-pages']);
+
+// Deploy everything to InMotionHosting.
+gulp.task('deploy', ['default', 'base-deploy']);
