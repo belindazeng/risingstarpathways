@@ -27,11 +27,7 @@
     console.log(lang);
     if (lang.indexOf("zh") > -1 && window.location.pathname.substr(1,2) != "cn"
       && !window.sessionStorage.getItem("redirect")) {
-      window.location.replace("cn/");
-      window.sessionStorage.setItem("redirect", true);
-    }
-    else if (lang.indexOf("en") > -1 && !window.sessionStorage.getItem("redirect")) {
-      window.location.replace("/");
+      window.location.replace("zh/");
       window.sessionStorage.setItem("redirect", true);
     }
   }
