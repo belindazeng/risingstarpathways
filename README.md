@@ -51,8 +51,8 @@ The structure should be mostly self-explanatory. Note that the website is transl
 
 To start the development process, follow normal node convention.
 1. Install `node` (v6.2.2) and `npm` (v3.10.6)
-2. Install `gulp` globally: `npm install -g gulp` (you're welcomed to install it locally).
-3. Install required packages as specified by the `package.json`: `npm install`
+2. Install required packages as specified by the `package.json`: `npm install`
+3. If you'd rather not install `gulp` globally, there's some helpful script definitions in `package.json` that should dd for now.
 
 The above should be sufficient to set the development environment. To begin development, simply execute `gulp dev`.
 
