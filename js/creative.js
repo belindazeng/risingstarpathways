@@ -24,7 +24,6 @@
   var languageRedirect = function() {
     var lang = navigator.languages ? navigator.languages[0]
       : (navigator.language || navigator.userLanguage);
-    console.log(lang);
     if (lang.indexOf("zh") > -1 && window.location.pathname.substr(1,2) != "cn"
       && !window.sessionStorage.getItem("redirect")) {
       window.location.replace("zh/");

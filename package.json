@@ -30,9 +30,6 @@
     "gulp-gh-pages": "^0.5.4"
   },
   "scripts": {
-    "gulp": "gulp",
-    "gulp deploy": "gulp deploy",
-    "gulp gh-pages": "gulp gh-pages",
-    "gulp dev": "gulp dev"
+    "gulp": "gulp"
   }
 }
